@@ -68,6 +68,12 @@ MonoBehaviour:
   difficultyMax: 5
   speed: 10
   hspeed: 15
+  fantasyLeft: {fileID: 2100000, guid: 7faa4ae2025f77e49bfe48c8b44c5336, type: 2}
+  fantasyMiddle: {fileID: 2100000, guid: 50c2e353ce141e34297126cde525200c, type: 2}
+  fantasyRight: {fileID: 2100000, guid: 0a27c6294e2dfae42a20a95d42f4cbe9, type: 2}
+  realityLeft: {fileID: 2100000, guid: 9593718742367784299423a8b60bb125, type: 2}
+  realityMiddle: {fileID: 2100000, guid: 197a462b819a07a4dbf0ec9aa5e1457d, type: 2}
+  realityRight: {fileID: 2100000, guid: f64d9bdbd6e76a94c974ff50445c3e32, type: 2}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

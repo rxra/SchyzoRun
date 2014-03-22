@@ -20,6 +20,12 @@ public class ScreenManager : MonoBehaviour {
 	public int difficultyMax = 5;
 	public float speed = 5;
 	public float hspeed = 5;
+	public Material fantasyLeft;
+	public Material fantasyMiddle;
+	public Material fantasyRight;
+	public Material realityLeft;
+	public Material realityMiddle;
+	public Material realityRight;
 
 	public static ScreenManager instance
 	{
