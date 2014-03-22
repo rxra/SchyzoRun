@@ -20,13 +20,17 @@ public class BricGenerator : MonoBehaviour {
 				t.gameObject.renderer.material.color = reality?ScreenManager.instance.realityColor2:ScreenManager.instance.fantasyColor2;
 			} else 	if (t.gameObject.name=="Left" || t.gameObject.name=="Right") {
 				t.gameObject.renderer.material.color = reality?ScreenManager.instance.realityColor1:ScreenManager.instance.fantasyColor1;
-			}
-
-			//if (!generateBonus && (t.gameObject.tag=="Eart" || t.gameObject.tag=="BigEart")) {
-			if (realityPercent>0f && (t.gameObject.tag=="Eart" || t.gameObject.tag=="BigEart")) {
-				bool generateBonus = Random.Range(0f,100f)<realityPercent?false:true;
-				if (!generateBonus) {
+			} else if (t.gameObject.tag=="Obstacle") {
+				if (Random.Range(0f,100f)<50) {
 					GameObject.Destroy(t.gameObject);
+				}
+			} else {
+				//if (!generateBonus && (t.gameObject.tag=="Eart" || t.gameObject.tag=="BigEart")) {
+				if (realityPercent>0f && (t.gameObject.tag=="Eart" || t.gameObject.tag=="BigEart")) {
+					bool generateBonus = Random.Range(0f,100f)<realityPercent?false:true;
+					if (!generateBonus) {
+						GameObject.Destroy(t.gameObject);
+					}
 				}
 			}
 		}
