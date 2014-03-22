@@ -21,7 +21,7 @@ public class Player : MonoBehaviour {
 		_startPosition = new Vector3(
 			screen.transform.position.x,
 			screen.transform.position.y - screen.transform.localScale.y/2f + transform.localScale.y/2f,
-			0
+			-1f
 		);
 
 		transform.position = _startPosition;
@@ -29,7 +29,7 @@ public class Player : MonoBehaviour {
 		_splitPosition = new Vector3(
 			screen.transform.position.x,
 			screen.transform.position.y + screen.transform.localScale.y/2f - transform.localScale.y/2f,
-			0
+			-1f
 		);
 	}
 
@@ -39,7 +39,7 @@ public class Player : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	/*void Update () {
 		float v = Input.GetAxis("Vertical");
 		transform.Translate(transform.up * v * speed * Time.deltaTime);
 
@@ -49,7 +49,7 @@ public class Player : MonoBehaviour {
 			//transform.position = _splitPosition;
 			ScreenManager.instance.SplitScreen(_screen);
 		}
-	}
+	}*/
 
 	private Screen _screen;
 	private Vector3 _startPosition;
