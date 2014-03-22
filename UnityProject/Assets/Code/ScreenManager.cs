@@ -95,9 +95,13 @@ public class ScreenManager : MonoBehaviour {
 		return go;
 	}
 
-	public void AddScreen(Screen s)
+	public void AddScreen(Screen s, bool addToTheEnd)
 	{
-		_screens.Add (s);
+		if (addToTheEnd) {
+			_screens.Add (s);
+		} else {
+			_screens.Insert (0,s);
+		}
 	}
 
 	public void RemoveScreen(Screen s, bool destroy)
@@ -110,7 +114,7 @@ public class ScreenManager : MonoBehaviour {
 
 	public void SplitScreen(Screen s)
 	{
-		s.SplitDouble();
+		s.SplitDouble(true);
 		//s.SplitQuad();
 	}
 
@@ -133,10 +137,10 @@ public class ScreenManager : MonoBehaviour {
 			1
 		);
 		screen.level = 1;
-		screen.reality = 0;
+		screen.screenReality = 0;
 		screen.bricReality = false;
 		screen.gameObject.name = "Screen_" + screen.level;
-		AddScreen(screen);
+		AddScreen(screen,true);
 	}
 	
 	// Update is called once per frame
@@ -158,24 +162,22 @@ public class ScreenManager : MonoBehaviour {
 			GenerateScreens(count);
 		}
 
+		/*if (Input.GetKeyDown(KeyCode.Space)) {
+			Screen s = _screens[0];
+			s.SplitDouble(false);
+		}*/
+
+		/*if (Input.GetKeyDown(KeyCode.Space)) {
+			_screens[0].SplitDouble(true);
+		}*/
+
 		if (Input.GetKeyDown(KeyCode.L)) {
 			difficulty++;
 			if (difficulty>difficultyMax) {
 				difficulty = difficultyMax;
 			}
 		}
-
-		/*if (Input.GetMouseButtonUp(0)) {
-			if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out _mouseHit, screenLayer)) {
-				Screen s = _mouseHit.collider.gameObject.GetComponent<Screen>();
-				if (s==null) {
-					Debug.LogWarning("Cannot find Screen compoment on hitted object");
-				} else {
-					s.SplitDouble();
-				}
-			}
-		}*/
-
+		
 	}
 
 	private void GenerateScreens(int count)
@@ -189,17 +191,17 @@ public class ScreenManager : MonoBehaviour {
 			);
 			screen.level = count;
 			screen.gameObject.name = "Screen_" + screen.level;
-			AddScreen(screen);
+			AddScreen(screen,true);
 			screen.InitSplittedScreen(i);
 			if (i==0) {
-				screen.reality = 0;
+				screen.screenReality = 0;
 				screen.bricReality = false;
 			} else if (i==count-1) {
-				screen.reality = 100;
+				screen.screenReality = 100;
 				screen.bricReality = true;
 			} else {
-				screen.reality = 100f*i/((float)(count-1));
-				screen.bricReality = Random.Range(0f,100f)<screen.reality?true:false;
+				screen.screenReality = 100f*i/((float)(count-1));
+				screen.bricReality = Random.Range(0f,100f)<screen.screenReality?true:false;
 			}
 		}
 	}

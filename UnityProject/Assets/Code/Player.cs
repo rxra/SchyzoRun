@@ -11,12 +11,12 @@ public class Player : MonoBehaviour {
 		Vector3 oldPosition = transform.position;
 		transform.Translate(transform.right * h * hspeed * Time.deltaTime);
 
-		if (transform.position.x < (_screen.transform.position.x - _screen.transform.localScale.x/2f + transform.localScale.x)) {
+		if (transform.position.x < (_screen.transform.position.x - _screen.transform.localScale.x/2f + renderer.bounds.size.x)) {
 			transform.position = oldPosition;
 			return false;
 		}
 
-		if (transform.position.x > (_screen.transform.position.x + _screen.transform.localScale.x/2f - transform.localScale.x)) {
+		if (transform.position.x > (_screen.transform.position.x + _screen.transform.localScale.x/2f - renderer.bounds.size.x)) {
 			transform.position = oldPosition;
 			return false;
 		}

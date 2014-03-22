@@ -6,7 +6,7 @@ public class Screen : MonoBehaviour {
 
 	public int level = 0;
 	public Color color = Color.blue;
-	public float reality = 0f;
+	public float screenReality = 0f;
 	public bool bricReality = true;
 
 	public bool InputPlayer(float h, float hspeed)
@@ -37,7 +37,7 @@ public class Screen : MonoBehaviour {
 		);
 	}
 
-	public void SplitDouble()
+	public void SplitDouble(bool addToTheEnd)
 	{
 		Screen s1 = GameObject.Instantiate(this) as Screen;
 		Screen s2 = GameObject.Instantiate(this) as Screen;
@@ -101,8 +101,8 @@ public class Screen : MonoBehaviour {
 				);
 		}
 
-		ScreenManager.instance.AddScreen(s1);
-		ScreenManager.instance.AddScreen(s2);
+		ScreenManager.instance.AddScreen(s2,addToTheEnd);
+		ScreenManager.instance.AddScreen(s1,addToTheEnd);
 		ScreenManager.instance.RemoveScreen(this,true);
 	}
 
@@ -171,10 +171,10 @@ public class Screen : MonoBehaviour {
 			transform.position.z
 		);
 
-		ScreenManager.instance.AddScreen(s1);
-		ScreenManager.instance.AddScreen(s2);
-		ScreenManager.instance.AddScreen(s3);
-		ScreenManager.instance.AddScreen(s4);
+		ScreenManager.instance.AddScreen(s1,true);
+		ScreenManager.instance.AddScreen(s2,true);
+		ScreenManager.instance.AddScreen(s3,true);
+		ScreenManager.instance.AddScreen(s4,true);
 		ScreenManager.instance.RemoveScreen(this,true);
 	}
 
@@ -240,7 +240,7 @@ public class Screen : MonoBehaviour {
 		BricGenerator blocPrefab = ScreenManager.instance.NextBloc(ref _idx);
 		BricGenerator bloc = GameObject.Instantiate(blocPrefab,_nextBlocPosition,Quaternion.identity) as BricGenerator;
 		bloc.reality = bricReality;
-		bloc.realityPercent = reality;
+		bloc.realityPercent = screenReality;
 		bloc.transform.position = _nextBlocPosition;
 		bloc.transform.localScale /= level;
 
