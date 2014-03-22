@@ -6,13 +6,12 @@ public class Screen : MonoBehaviour {
 
 	public int level = 0;
 	public Color color = Color.blue;
-	public float speed = 5;
 	public float reality = 0f;
 	public bool bricReality = true;
 
-	public bool InputPlayer(float h)
+	public bool InputPlayer(float h, float hspeed)
 	{
-		return _player.Input(h);
+		return _player.Input(h,hspeed);
 	}
 
 	public void DestroyScreen()
@@ -221,7 +220,7 @@ public class Screen : MonoBehaviour {
 	void Update()
 	{
 		foreach(BricGenerator bloc in _blocs) {
-			bloc.transform.Translate(-bloc.transform.up * speed * Time.deltaTime);
+			bloc.transform.Translate(-bloc.transform.up * ScreenManager.instance.speed * Time.deltaTime);
 		}
 
 		//if ((Camera.main.transform.position.x+_cameraWidth)>=_nextBlocPosition.x) {

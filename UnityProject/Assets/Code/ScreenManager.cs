@@ -8,10 +8,17 @@ public class ScreenManager : MonoBehaviour {
 	public Player playerPrefab;
 	public LayerMask screenLayer;
 	public BricGenerator[] brics;
+	public BricGenerator[] easyBrics;
+	public BricGenerator[] mediumBrics;
+	public BricGenerator[] hardBrics;
 	public Color realityColor1;
 	public Color realityColor2;
 	public Color fantasyColor1;
 	public Color fantasyColor2;
+	public int difficulty = 1;
+	public int difficultyMax = 5;
+	public float speed = 5;
+	public float hspeed = 5;
 
 	public static ScreenManager instance
 	{
@@ -23,8 +30,71 @@ public class ScreenManager : MonoBehaviour {
 
 	public BricGenerator NextBloc(ref int idx)
 	{
-		BricGenerator go = brics[idx];
-		idx = (idx+1)%brics.Length;
+		if (_screens.Count>1) {
+			Debug.Log ("tot");
+		}
+
+		if (_currentBric!=null) {
+			_currentScreenGeneration++;
+			BricGenerator ogo = _currentBric;
+			if(_currentScreenGeneration>=_screens.Count) {
+				_currentScreenGeneration = 0;
+				_currentBric = null;
+			}
+			return ogo;
+		}
+		//BricGenerator go = brics[idx];
+		//idx = (idx+1)%brics.Length;
+		//return go;
+
+		BricGenerator go = null;
+
+		switch(difficulty) {
+		case 1:
+			go = easyBrics[Random.Range (0,easyBrics.Length)];
+			break;
+
+		case 2:
+			{
+				int bidx = Random.Range (0,easyBrics.Length + mediumBrics.Length);
+				if (bidx<easyBrics.Length) {
+					 go = easyBrics[bidx];
+				} else {
+					bidx -= easyBrics.Length;
+					go = mediumBrics[bidx];
+				}
+			}
+			break;
+
+		case 3:
+			go = mediumBrics[Random.Range (0,mediumBrics.Length)];
+			break;
+
+		case 4:
+			{
+				int bidx = Random.Range (0,mediumBrics.Length + hardBrics.Length);
+				if (bidx<mediumBrics.Length) {
+					go = mediumBrics[bidx];
+				} else {
+					bidx -= mediumBrics.Length;
+					go = hardBrics[bidx];
+				}
+			}
+			break;
+
+		case 5:
+			go = hardBrics[Random.Range (0,hardBrics.Length)];
+			break;
+		}
+
+		_currentScreenGeneration++;
+		if(_currentScreenGeneration>=_screens.Count) {
+			_currentScreenGeneration = 0;
+			_currentBric = null;
+		} else {
+			_currentBric = go;
+		}
+
 		return go;
 	}
 
@@ -79,7 +149,7 @@ public class ScreenManager : MonoBehaviour {
 
 		float h = Input.GetAxis("Horizontal");
 		foreach (Screen s in _screens) {
-			if (!s.InputPlayer(h)) {
+			if (!s.InputPlayer(h,hspeed)) {
 				break;
 			}
 		}
@@ -91,6 +161,13 @@ public class ScreenManager : MonoBehaviour {
 			}
 			_screens.Clear();
 			GenerateScreens(count);
+		}
+
+		if (Input.GetKeyDown(KeyCode.L)) {
+			difficulty++;
+			if (difficulty>difficultyMax) {
+				difficulty = difficultyMax;
+			}
 		}
 
 		/*if (Input.GetMouseButtonUp(0)) {
@@ -134,5 +211,7 @@ public class ScreenManager : MonoBehaviour {
 
 	private List<Screen> _screens = new List<Screen>();
 	private RaycastHit _mouseHit = new RaycastHit();
+	private BricGenerator _currentBric = null;
+	private int _currentScreenGeneration = 0;
 
 }

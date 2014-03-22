@@ -4,13 +4,12 @@ using System.Collections;
 public class Player : MonoBehaviour {
 
 	public float scaleFactor = 0.1f;
-	public float speed = 10f;
 	public float borderMargin = 20f;
 
-	public bool Input(float h)
+	public bool Input(float h, float hspeed)
 	{
 		Vector3 oldPosition = transform.position;
-		transform.Translate(transform.right * h * speed * Time.deltaTime);
+		transform.Translate(transform.right * h * hspeed * Time.deltaTime);
 
 		if (transform.position.x < (_screen.transform.position.x - _screen.transform.localScale.x/2f + transform.localScale.x)) {
 			transform.position = oldPosition;
