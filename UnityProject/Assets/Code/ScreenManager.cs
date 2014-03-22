@@ -7,7 +7,11 @@ public class ScreenManager : MonoBehaviour {
 	public Screen screenPrefab;
 	public Player playerPrefab;
 	public LayerMask screenLayer;
-	public GameObject[] blocs;
+	public BricGenerator[] brics;
+	public Color realityColor1;
+	public Color realityColor2;
+	public Color fantasyColor1;
+	public Color fantasyColor2;
 
 	public static ScreenManager instance
 	{
@@ -17,10 +21,10 @@ public class ScreenManager : MonoBehaviour {
 		}
 	}
 
-	public GameObject NextBloc(ref int idx)
+	public BricGenerator NextBloc(ref int idx)
 	{
-		GameObject go = blocs[idx];
-		idx = (idx+1)%blocs.Length;
+		BricGenerator go = brics[idx];
+		idx = (idx+1)%brics.Length;
 		return go;
 	}
 
@@ -64,6 +68,8 @@ public class ScreenManager : MonoBehaviour {
 			1
 		);
 		screen.level = 1;
+		screen.reality = 0;
+		screen.bricReality = false;
 		screen.gameObject.name = "Screen_" + screen.level;
 		AddScreen(screen);
 	}
@@ -113,6 +119,16 @@ public class ScreenManager : MonoBehaviour {
 			screen.gameObject.name = "Screen_" + screen.level;
 			AddScreen(screen);
 			screen.InitSplittedScreen(i);
+			if (i==0) {
+				screen.reality = 0;
+				screen.bricReality = false;
+			} else if (i==count-1) {
+				screen.reality = 100;
+				screen.bricReality = true;
+			} else {
+				screen.reality = 100f*i/((float)(count-1));
+				screen.bricReality = Random.Range(0f,100f)<screen.reality?true:false;
+			}
 		}
 	}
 

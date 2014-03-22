@@ -78,7 +78,7 @@ NavMeshSettings:
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 100000, guid: 9fbe3829f0bcb3f44a154b586864bb28, type: 2}
-  m_PrefabInternal: {fileID: 1175292390}
+  m_PrefabInternal: {fileID: 1014831910}
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 826243285}
@@ -95,7 +95,7 @@ MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 11400000, guid: 9fbe3829f0bcb3f44a154b586864bb28,
     type: 2}
-  m_PrefabInternal: {fileID: 1175292390}
+  m_PrefabInternal: {fileID: 1014831910}
   m_GameObject: {fileID: 826243283}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -107,21 +107,24 @@ MonoBehaviour:
   screenLayer:
     serializedVersion: 2
     m_Bits: 256
-  blocs:
-  - {fileID: 100010, guid: a77a550149a09884bb572111e34d1ebe, type: 2}
-  - {fileID: 100004, guid: 5647fa445d76370409929f4dfd039d4a, type: 2}
+  brics:
+  - {fileID: 11400000, guid: dab582bbe7f85c74a993342d6c28219d, type: 2}
+  realityColor1: {r: 0, g: 1, b: 0, a: 0}
+  realityColor2: {r: .5328179, g: .992647052, b: .5328179, a: 0}
+  fantasyColor1: {r: 1, g: 0, b: 1, a: 0}
+  fantasyColor2: {r: .985294104, g: .579584777, b: .957314193, a: 0}
 --- !u!4 &826243285
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 400000, guid: 9fbe3829f0bcb3f44a154b586864bb28, type: 2}
-  m_PrefabInternal: {fileID: 1175292390}
+  m_PrefabInternal: {fileID: 1014831910}
   m_GameObject: {fileID: 826243283}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
---- !u!1001 &1175292390
+--- !u!1001 &1014831910
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2

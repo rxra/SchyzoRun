@@ -7,6 +7,8 @@ public class Screen : MonoBehaviour {
 	public int level = 0;
 	public Color color = Color.blue;
 	public float speed = 5;
+	public float reality = 0f;
+	public bool bricReality = true;
 
 	public bool InputPlayer(float h)
 	{
@@ -16,10 +18,10 @@ public class Screen : MonoBehaviour {
 	public void DestroyScreen()
 	{
 		GameObject.Destroy(_player.gameObject);
-		GameObject.Destroy(gameObject);
-		foreach(GameObject bloc in _blocs) {
-			GameObject.Destroy(bloc);
+		foreach(BricGenerator bloc in _blocs) {
+			GameObject.Destroy(bloc.gameObject);
 		}
+		GameObject.Destroy(gameObject);
 	}
 
 	public void InitSplittedScreen(int idx)
@@ -218,7 +220,7 @@ public class Screen : MonoBehaviour {
 
 	void Update()
 	{
-		foreach(GameObject bloc in _blocs) {
+		foreach(BricGenerator bloc in _blocs) {
 			bloc.transform.Translate(-bloc.transform.up * speed * Time.deltaTime);
 		}
 
@@ -230,7 +232,7 @@ public class Screen : MonoBehaviour {
 
 		if (_blocs.Count>0 && _firstBloc.transform.position.y<(_destroyBlocPosition.y-_lastBlockBounds.size.y/2f)) {
 			_blocs.RemoveAt(0);
-			GameObject.Destroy(_firstBloc);
+			GameObject.Destroy(_firstBloc.gameObject);
 			if (_blocs.Count>0) {
 				_firstBloc = _blocs[0];
 			}
@@ -241,8 +243,9 @@ public class Screen : MonoBehaviour {
 
 	private void CreateNextBloc()
 	{
-		GameObject blocPrefab = ScreenManager.instance.NextBloc(ref _idx);
-		GameObject bloc = GameObject.Instantiate(blocPrefab,_nextBlocPosition,Quaternion.identity) as GameObject;
+		BricGenerator blocPrefab = ScreenManager.instance.NextBloc(ref _idx);
+		BricGenerator bloc = GameObject.Instantiate(blocPrefab,_nextBlocPosition,Quaternion.identity) as BricGenerator;
+		bloc.reality = bricReality;
 		bloc.transform.position = _nextBlocPosition;
 		bloc.transform.localScale /= level;
 
@@ -273,9 +276,9 @@ public class Screen : MonoBehaviour {
 	private Player _player;
 	private Vector3 _nextBlocPosition = Vector3.zero;
 	private Bounds _lastBlockBounds;
-	private List<GameObject> _blocs = new List<GameObject>();
-	private GameObject _firstBloc;
-	private GameObject _lastBloc;
+	private List<BricGenerator> _blocs = new List<BricGenerator>();
+	private BricGenerator _firstBloc;
+	private BricGenerator _lastBloc;
 	private Vector3 _destroyBlocPosition;
 	private Vector3 _generateBlocPosition;
 
