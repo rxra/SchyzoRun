@@ -43,8 +43,12 @@ MonoBehaviour:
   screenLayer:
     serializedVersion: 2
     m_Bits: 256
-  blocs:
-  - {fileID: 100006, guid: c95f16727e5f79648a2d85e8d41d771e, type: 2}
+  brics:
+  - {fileID: 11400000, guid: dab582bbe7f85c74a993342d6c28219d, type: 2}
+  realityColor1: {r: 0, g: 1, b: 0, a: 0}
+  realityColor2: {r: .5328179, g: .992647052, b: .5328179, a: 0}
+  fantasyColor1: {r: 1, g: 0, b: 1, a: 0}
+  fantasyColor2: {r: .985294104, g: .579584777, b: .957314193, a: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

@@ -64,7 +64,12 @@ public class Player : MonoBehaviour {
 	void Start () {
 	
 	}
-	
+
+	void OnTriggerEnter(Collider collider)
+	{
+		Debug.Log (collider.gameObject);
+	}
+
 	// Update is called once per frame
 	/*void Update () {
 		float v = Input.GetAxis("Vertical");
