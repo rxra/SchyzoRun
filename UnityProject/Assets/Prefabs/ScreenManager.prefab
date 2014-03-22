@@ -38,15 +38,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07a32063db98f79439f5b9c137497fcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  worldPrefab: {fileID: 100000, guid: 40dcf8f90355b9641a9a829adff85119, type: 2}
   screenPrefab: {fileID: 11400000, guid: ff959a11379de8d46884874c737996f1, type: 2}
   playerPrefab: {fileID: 11400000, guid: 57fe3728b6939614d8a25b021d8bd46c, type: 2}
   screenLayer:
     serializedVersion: 2
     m_Bits: 256
   blocs:
-  - {fileID: 100010, guid: a77a550149a09884bb572111e34d1ebe, type: 2}
-  - {fileID: 100004, guid: 5647fa445d76370409929f4dfd039d4a, type: 2}
+  - {fileID: 100006, guid: c95f16727e5f79648a2d85e8d41d771e, type: 2}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
