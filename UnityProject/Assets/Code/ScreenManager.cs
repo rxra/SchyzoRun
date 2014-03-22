@@ -43,6 +43,11 @@ public class ScreenManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		Screen screen = GameObject.Instantiate(screenPrefab,Vector3.zero,Quaternion.identity) as Screen;
+		screen.transform.localScale = new Vector3(
+			Camera.main.orthographicSize*Camera.main.aspect*2,
+			Camera.main.orthographicSize*2,
+			1
+		);
 		screen.level = 0;
 		screen.gameObject.name = "Screen_" + screen.level;
 		AddScreen(screen);
