@@ -240,6 +240,7 @@ public class Screen : MonoBehaviour {
 		BricGenerator blocPrefab = ScreenManager.instance.NextBloc(ref _idx);
 		BricGenerator bloc = GameObject.Instantiate(blocPrefab,_nextBlocPosition,Quaternion.identity) as BricGenerator;
 		bloc.reality = bricReality;
+		bloc.realityPercent = reality;
 		bloc.transform.position = _nextBlocPosition;
 		bloc.transform.localScale /= level;
 
