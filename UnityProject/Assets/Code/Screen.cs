@@ -39,7 +39,6 @@ public class Screen : MonoBehaviour {
 
 	public void SplitDouble()
 	{
-		Debug.Log ("++ SplitDouble: " + gameObject.name);
 		Screen s1 = GameObject.Instantiate(this) as Screen;
 		Screen s2 = GameObject.Instantiate(this) as Screen;
 
@@ -105,13 +104,10 @@ public class Screen : MonoBehaviour {
 		ScreenManager.instance.AddScreen(s1);
 		ScreenManager.instance.AddScreen(s2);
 		ScreenManager.instance.RemoveScreen(this,true);
-
-		Debug.Log ("-- SplitDouble");
 	}
 
 	public void SplitQuad()
 	{
-		Debug.Log ("++ SplitQuad: " + gameObject.name);
 		Screen s1 = GameObject.Instantiate(this) as Screen;
 		Screen s2 = GameObject.Instantiate(this) as Screen;
 		Screen s3 = GameObject.Instantiate(this) as Screen;
@@ -180,14 +176,13 @@ public class Screen : MonoBehaviour {
 		ScreenManager.instance.AddScreen(s3);
 		ScreenManager.instance.AddScreen(s4);
 		ScreenManager.instance.RemoveScreen(this,true);
-		
-		Debug.Log ("-- SplitQuad");
 	}
 
 	void Start () {
 		//renderer.material.color = color;
 		_idx = 0;
-		_player = GameObject.Instantiate(ScreenManager.instance.playerPrefab) as Player;
+		Player prefab = bricReality?ScreenManager.instance.playerRealityPrefab:ScreenManager.instance.playerFantasyPrefab;
+		_player = GameObject.Instantiate(prefab) as Player;
 		_player.Initialize(this);
 
 		_nextBlocPosition = new Vector3(

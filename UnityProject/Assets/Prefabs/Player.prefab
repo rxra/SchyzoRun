@@ -98,7 +98,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scaleFactor: .100000001
-  speed: 25
   borderMargin: 20
 --- !u!1001 &100100000
 Prefab:

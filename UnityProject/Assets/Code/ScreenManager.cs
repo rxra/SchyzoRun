@@ -5,7 +5,8 @@ using System.Collections.Generic;
 public class ScreenManager : MonoBehaviour {
 
 	public Screen screenPrefab;
-	public Player playerPrefab;
+	public Player playerFantasyPrefab;
+	public Player playerRealityPrefab;
 	public LayerMask screenLayer;
 	public BricGenerator[] brics;
 	public BricGenerator[] easyBrics;
@@ -30,10 +31,6 @@ public class ScreenManager : MonoBehaviour {
 
 	public BricGenerator NextBloc(ref int idx)
 	{
-		if (_screens.Count>1) {
-			Debug.Log ("tot");
-		}
-
 		if (_currentBric!=null) {
 			_currentScreenGeneration++;
 			BricGenerator ogo = _currentBric;
@@ -101,7 +98,6 @@ public class ScreenManager : MonoBehaviour {
 	public void AddScreen(Screen s)
 	{
 		_screens.Add (s);
-		Debug.Log ("screens: " + _screens.Count);
 	}
 
 	public void RemoveScreen(Screen s, bool destroy)
@@ -110,7 +106,6 @@ public class ScreenManager : MonoBehaviour {
 		if (destroy) {
 			s.DestroyScreen();
 		}
-		Debug.Log ("screens: " + _screens.Count);
 	}
 
 	public void SplitScreen(Screen s)

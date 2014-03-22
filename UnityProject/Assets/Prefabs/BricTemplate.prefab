@@ -85,7 +85,7 @@ GameObject:
   - 65: {fileID: 6500002}
   m_Layer: 0
   m_Name: Eart
-  m_TagString: Untagged
+  m_TagString: Eart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -671,6 +671,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27a2ebc54c1db8b4895f6189cbb122e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  reality: 1
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

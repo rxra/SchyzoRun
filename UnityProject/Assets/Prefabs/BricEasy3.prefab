@@ -85,7 +85,7 @@ GameObject:
   - 65: {fileID: 6500000}
   m_Layer: 0
   m_Name: Eart
-  m_TagString: Untagged
+  m_TagString: Eart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -179,7 +179,7 @@ GameObject:
   - 65: {fileID: 6500010}
   m_Layer: 0
   m_Name: Eart
-  m_TagString: Untagged
+  m_TagString: Eart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -198,7 +198,7 @@ GameObject:
   - 65: {fileID: 6500012}
   m_Layer: 0
   m_Name: Eart
-  m_TagString: Untagged
+  m_TagString: Eart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -217,7 +217,7 @@ GameObject:
   - 65: {fileID: 6500014}
   m_Layer: 0
   m_Name: Eart
-  m_TagString: Untagged
+  m_TagString: Eart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -236,7 +236,7 @@ GameObject:
   - 65: {fileID: 6500016}
   m_Layer: 0
   m_Name: Eart
-  m_TagString: Untagged
+  m_TagString: Eart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -255,7 +255,7 @@ GameObject:
   - 65: {fileID: 6500018}
   m_Layer: 0
   m_Name: Eart
-  m_TagString: Untagged
+  m_TagString: Eart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -274,7 +274,7 @@ GameObject:
   - 65: {fileID: 6500020}
   m_Layer: 0
   m_Name: Eart
-  m_TagString: Untagged
+  m_TagString: Eart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -293,7 +293,7 @@ GameObject:
   - 65: {fileID: 6500022}
   m_Layer: 0
   m_Name: Eart
-  m_TagString: Untagged
+  m_TagString: Eart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -312,7 +312,7 @@ GameObject:
   - 65: {fileID: 6500024}
   m_Layer: 0
   m_Name: Eart
-  m_TagString: Untagged
+  m_TagString: Eart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -331,7 +331,7 @@ GameObject:
   - 65: {fileID: 6500026}
   m_Layer: 0
   m_Name: Eart
-  m_TagString: Untagged
+  m_TagString: Eart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -350,7 +350,7 @@ GameObject:
   - 65: {fileID: 6500028}
   m_Layer: 0
   m_Name: Eart
-  m_TagString: Untagged
+  m_TagString: Eart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -369,7 +369,7 @@ GameObject:
   - 65: {fileID: 6500030}
   m_Layer: 0
   m_Name: Eart
-  m_TagString: Untagged
+  m_TagString: Eart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -388,7 +388,7 @@ GameObject:
   - 65: {fileID: 6500032}
   m_Layer: 0
   m_Name: Eart
-  m_TagString: Untagged
+  m_TagString: Eart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -407,7 +407,7 @@ GameObject:
   - 65: {fileID: 6500034}
   m_Layer: 0
   m_Name: Eart
-  m_TagString: Untagged
+  m_TagString: Eart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -426,7 +426,7 @@ GameObject:
   - 65: {fileID: 6500036}
   m_Layer: 0
   m_Name: Eart
-  m_TagString: Untagged
+  m_TagString: Eart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -445,7 +445,7 @@ GameObject:
   - 65: {fileID: 6500038}
   m_Layer: 0
   m_Name: Eart
-  m_TagString: Untagged
+  m_TagString: Eart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -464,7 +464,7 @@ GameObject:
   - 65: {fileID: 6500040}
   m_Layer: 0
   m_Name: Eart
-  m_TagString: Untagged
+  m_TagString: Eart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -483,7 +483,7 @@ GameObject:
   - 65: {fileID: 6500042}
   m_Layer: 0
   m_Name: Eart
-  m_TagString: Untagged
+  m_TagString: Eart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

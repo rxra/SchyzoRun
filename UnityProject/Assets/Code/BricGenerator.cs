@@ -10,7 +10,7 @@ public class BricGenerator : MonoBehaviour {
 			BoxCollider b = t.GetComponent<BoxCollider>();
 			if (b) {
 				b.isTrigger = true;
-				b.size = new Vector3(b.size.x,b.size.y,5);
+				b.size = new Vector3(b.size.x,b.size.y,20);
 			}
 			if (t.gameObject.name=="Middle") {
 				t.gameObject.renderer.material.color = reality?ScreenManager.instance.realityColor2:ScreenManager.instance.fantasyColor2;

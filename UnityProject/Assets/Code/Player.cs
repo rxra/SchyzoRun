@@ -44,7 +44,7 @@ public class Player : MonoBehaviour {
 
 		_startPosition = new Vector3(
 			screen.transform.position.x,
-			screen.transform.position.y - screen.transform.localScale.y/2f + transform.localScale.y/2f,
+			screen.transform.position.y - screen.transform.localScale.y/2f + transform.localScale.y/2f + 5f,
 			-1f
 		);
 
@@ -66,7 +66,10 @@ public class Player : MonoBehaviour {
 
 	void OnTriggerEnter(Collider collider)
 	{
-		Debug.Log (collider.gameObject);
+		//Debug.Log (collider.gameObject);
+		if (collider.gameObject.tag=="Eart" || collider.gameObject.tag=="BigEart") {
+			GameObject.Destroy(collider.gameObject);
+		}
 	}
 
 	// Update is called once per frame
