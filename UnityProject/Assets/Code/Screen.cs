@@ -6,6 +6,12 @@ public class Screen : MonoBehaviour {
 	public int level = 0;
 	public Color color = Color.blue;
 
+	public void DestroyScreen()
+	{
+		GameObject.Destroy(_player.gameObject);
+		GameObject.Destroy(gameObject);
+	}
+
 	public void Split(bool horizontal)
 	{
 		Debug.Log ("++ Split: " + gameObject.name);
@@ -77,6 +83,11 @@ public class Screen : MonoBehaviour {
 
 	void Start () {
 		renderer.material.color = color;
+
+		_player = GameObject.Instantiate(ScreenManager.instance.playerPrefab) as Player;
+		_player.Initialize(this);
 	}
+
+	private Player _player;
 	
 }

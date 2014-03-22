@@ -39,6 +39,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   screenPrefab: {fileID: 11400000, guid: ff959a11379de8d46884874c737996f1, type: 2}
+  playerPrefab: {fileID: 11400000, guid: 57fe3728b6939614d8a25b021d8bd46c, type: 2}
   screenLayer:
     serializedVersion: 2
     m_Bits: 256

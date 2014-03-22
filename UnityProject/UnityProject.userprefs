@@ -1,9 +1,9 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Code\Screen.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Code\ScreenManager.cs">
     <Files>
-      <File FileName="Assets\Code\ScreenManager.cs" Line="28" Column="35" />
-      <File FileName="Assets\Code\Screen.cs" Line="66" Column="23" />
+      <File FileName="Assets\Code\ScreenManager.cs" Line="44" Column="17" />
+      <File FileName="Assets\Code\Screen.cs" Line="65" Column="7" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
