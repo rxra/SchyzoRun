@@ -8,6 +8,11 @@ public class Screen : MonoBehaviour {
 	public Color color = Color.blue;
 	public float speed = 5;
 
+	public bool InputPlayer(float h)
+	{
+		return _player.Input(h);
+	}
+
 	public void DestroyScreen()
 	{
 		GameObject.Destroy(_player.gameObject);
@@ -239,6 +244,7 @@ public class Screen : MonoBehaviour {
 		GameObject blocPrefab = ScreenManager.instance.NextBloc(ref _idx);
 		GameObject bloc = GameObject.Instantiate(blocPrefab,_nextBlocPosition,Quaternion.identity) as GameObject;
 		bloc.transform.position = _nextBlocPosition;
+		bloc.transform.localScale /= level;
 
 		_lastBlockBounds = new Bounds(_nextBlocPosition,Vector3.zero);
 		if (bloc.transform.childCount>0) {

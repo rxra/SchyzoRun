@@ -71,6 +71,22 @@ public class ScreenManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+		float h = Input.GetAxis("Horizontal");
+		foreach (Screen s in _screens) {
+			if (!s.InputPlayer(h)) {
+				break;
+			}
+		}
+
+		if (Input.GetKeyDown(KeyCode.Space)) {
+			int count = _screens.Count+1;
+			foreach(Screen s in _screens) {
+				s.DestroyScreen();
+			}
+			_screens.Clear();
+			GenerateScreens(count);
+		}
+
 		/*if (Input.GetMouseButtonUp(0)) {
 			if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out _mouseHit, screenLayer)) {
 				Screen s = _mouseHit.collider.gameObject.GetComponent<Screen>();
@@ -81,15 +97,6 @@ public class ScreenManager : MonoBehaviour {
 				}
 			}
 		}*/
-
-		if (Input.GetKeyDown(KeyCode.Space)) {
-			int count = _screens.Count+1;
-			foreach(Screen s in _screens) {
-				s.DestroyScreen();
-			}
-			_screens.Clear();
-			GenerateScreens(count);
-		}
 
 	}
 

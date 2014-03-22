@@ -5,16 +5,41 @@ public class Player : MonoBehaviour {
 
 	public float scaleFactor = 0.1f;
 	public float speed = 10f;
+	public float borderMargin = 20f;
+
+	public bool Input(float h)
+	{
+		Vector3 oldPosition = transform.position;
+		transform.Translate(transform.right * h * speed * Time.deltaTime);
+
+		if (transform.position.x < (_screen.transform.position.x - _screen.transform.localScale.x/2f + transform.localScale.x)) {
+			transform.position = oldPosition;
+			return false;
+		}
+
+		if (transform.position.x > (_screen.transform.position.x + _screen.transform.localScale.x/2f - transform.localScale.x)) {
+			transform.position = oldPosition;
+			return false;
+		}
+
+		return true;
+	}
 
 	public void Initialize(Screen screen)
 	{
 		_screen = screen;
 		gameObject.name = "Player_"+screen.name;
 
-		float size = Mathf.Min(screen.transform.localScale.x,screen.transform.localScale.y);
+		/*float size = Mathf.Min(screen.transform.localScale.x,screen.transform.localScale.y);
 		transform.localScale = new Vector3(
 			size * scaleFactor,
 			size * scaleFactor,
+			transform.localScale.z
+		);*/
+
+		transform.localScale = new Vector3(
+			transform.localScale.x/(float)screen.level,
+			transform.localScale.y/(float)screen.level,
 			transform.localScale.z
 		);
 
@@ -31,6 +56,8 @@ public class Player : MonoBehaviour {
 			screen.transform.position.y + screen.transform.localScale.y/2f - transform.localScale.y/2f,
 			-1f
 		);
+
+		borderMargin /= (float)screen.level;
 	}
 
 	// Use this for initialization
