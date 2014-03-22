@@ -223,12 +223,12 @@ public class Screen : MonoBehaviour {
 		}
 
 		//if ((Camera.main.transform.position.x+_cameraWidth)>=_nextBlocPosition.x) {
-		if (_lastBloc.transform.position.y+_lastBloc.renderer.bounds.size.y/2f<=_generateBlocPosition.y) {
+		if (_lastBloc.transform.position.y+_lastBlockBounds.size.y/2f<=_generateBlocPosition.y) {
 			_nextBlocPosition = _generateBlocPosition;
 			CreateNextBloc();
 		}
 
-		if (_blocs.Count>0 && _firstBloc.transform.position.y<(_destroyBlocPosition.y-_firstBloc.renderer.bounds.size.y/2f)) {
+		if (_blocs.Count>0 && _firstBloc.transform.position.y<(_destroyBlocPosition.y-_lastBlockBounds.size.y/2f)) {
 			_blocs.RemoveAt(0);
 			GameObject.Destroy(_firstBloc);
 			if (_blocs.Count>0) {
