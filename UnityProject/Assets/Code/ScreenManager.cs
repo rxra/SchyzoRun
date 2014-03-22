@@ -51,14 +51,13 @@ public class ScreenManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		if (Input.GetMouseButtonUp (0)) {
+		if (Input.GetMouseButtonUp(0) || Input.GetMouseButtonUp(1)) {
 			if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out _mouseHit, screenLayer)) {
 				Screen s = _mouseHit.collider.gameObject.GetComponent<Screen>();
 				if (s==null) {
 					Debug.LogWarning("Cannot find Screen compoment on hitted object");
 				} else {
-					s.Split(_horizontal);
-					_horizontal = !_horizontal;
+					s.Split(Input.GetMouseButtonUp(0)?true:false);
 				}
 			}
 		}	
@@ -67,6 +66,5 @@ public class ScreenManager : MonoBehaviour {
 
 	private List<Screen> _screens = new List<Screen>();
 	private RaycastHit _mouseHit = new RaycastHit();
-	private bool _horizontal = true;
 
 }
