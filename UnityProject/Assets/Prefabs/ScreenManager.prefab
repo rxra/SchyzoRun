@@ -107,6 +107,10 @@ MonoBehaviour:
   realityMiddle: {fileID: 2100000, guid: 197a462b819a07a4dbf0ec9aa5e1457d, type: 2}
   realityRight: {fileID: 2100000, guid: f64d9bdbd6e76a94c974ff50445c3e32, type: 2}
   text: {fileID: 13200000}
+  fantasyObstacle1: {fileID: 2100000, guid: ac290e01005d9314f8bc7ece8c6ac847, type: 2}
+  realityObstacle1: {fileID: 2100000, guid: 3a3053ce70af0194da26dcb56f0c1db1, type: 2}
+  fantasyObstacle2: {fileID: 2100000, guid: 535d4d3d43900814895d7c7a81da8d26, type: 2}
+  realityObstacle2: {fileID: 2100000, guid: 667d77db7651f6e4e854ce4c3a4561c9, type: 2}
 --- !u!132 &13200000
 GUIText:
   m_ObjectHideFlags: 1

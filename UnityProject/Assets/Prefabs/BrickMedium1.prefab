@@ -640,7 +640,7 @@ Transform:
   m_GameObject: {fileID: 100002}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -8, y: -20, z: -.5}
-  m_LocalScale: {x: 18, y: 5, z: 1}
+  m_LocalScale: {x: 18, y: 16, z: 1}
   m_Children: []
   m_Father: {fileID: 400042}
 --- !u!4 &400004
@@ -651,7 +651,7 @@ Transform:
   m_GameObject: {fileID: 100004}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -8, y: 38, z: -.5}
-  m_LocalScale: {x: 18, y: 5, z: 1}
+  m_LocalScale: {x: 18, y: 16, z: 1}
   m_Children: []
   m_Father: {fileID: 400042}
 --- !u!4 &400006
@@ -1049,7 +1049,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: bdf5e31afb2cbc24cb2cfb4dc686052e, type: 2}
+  - {fileID: 2100000, guid: 535d4d3d43900814895d7c7a81da8d26, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -1070,7 +1070,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: bdf5e31afb2cbc24cb2cfb4dc686052e, type: 2}
+  - {fileID: 2100000, guid: 535d4d3d43900814895d7c7a81da8d26, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -2350,8 +2350,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 5}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: .5, z: 5}
+  m_Center: {x: 0, y: -.25, z: 0}
 --- !u!65 &6500004
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -2362,8 +2362,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 5}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: .5, z: 5}
+  m_Center: {x: 0, y: -.25, z: 0}
 --- !u!65 &6500006
 BoxCollider:
   m_ObjectHideFlags: 1

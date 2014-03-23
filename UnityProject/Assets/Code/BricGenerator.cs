@@ -25,6 +25,11 @@ public class BricGenerator : MonoBehaviour {
 				t.gameObject.renderer.material = reality?ScreenManager.instance.realityRight:ScreenManager.instance.fantasyRight;
 				//t.gameObject.renderer.material.color = reality?ScreenManager.instance.realityColor1:ScreenManager.instance.fantasyColor1;
 			} else if (t.gameObject.tag=="Obstacle") {
+				if (t.gameObject.name=="Obstacle1") {
+					t.gameObject.renderer.material = reality?ScreenManager.instance.realityObstacle1:ScreenManager.instance.fantasyObstacle1;
+				} else if (t.gameObject.name=="Obstacle2") {
+					t.gameObject.renderer.material = reality?ScreenManager.instance.realityObstacle2:ScreenManager.instance.fantasyObstacle2;
+				}
 				if (Random.Range(0f,100f)<50) {
 					GameObject.Destroy(t.gameObject);
 				}

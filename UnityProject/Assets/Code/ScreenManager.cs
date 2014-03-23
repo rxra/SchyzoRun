@@ -29,7 +29,15 @@ public class ScreenManager : MonoBehaviour {
 	public Material realityMiddle;
 	public Material realityRight;
 	public GUIText text;
-	
+
+	public Material fantasyObstacle1;
+	public Material realityObstacle1;
+	public Material fantasyObstacle2;
+	public Material realityObstacle2;
+	public Material fantasyObstacle3;
+	public Material realityObstacle3;
+	public Material heart;
+
 	public static ScreenManager instance
 	{
 		get

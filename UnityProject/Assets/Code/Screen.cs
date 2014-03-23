@@ -268,7 +268,7 @@ public class Screen : MonoBehaviour {
 		_lastBlockBounds = new Bounds(_nextBlocPosition,Vector3.zero);
 		if (bloc.transform.childCount>0) {
 			foreach(Transform t in bloc.transform) {
-				if (t.renderer!=null) {
+				if (t.gameObject.tag!="Obstacle" && t.renderer!=null) {
 					_lastBlockBounds.Encapsulate(t.renderer.bounds);
 				}
 			}
