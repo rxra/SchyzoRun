@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0eab61212d4b2264181224ed1b6f0617
+guid: 8f4a1a7ddd7de3d49842158c16b9558c
 TextureImporter:
   serializedVersion: 2
   mipmaps:
@@ -24,18 +24,18 @@ TextureImporter:
   maxTextureSize: 1024
   textureSettings:
     filterMode: -1
-    aniso: 1
+    aniso: -1
     mipBias: -1
-    wrapMode: 1
+    wrapMode: -1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: .5, y: .5}
-  spritePixelsToUnits: 30
+  spritePixelsToUnits: 100
   alphaIsTransparency: 1
   textureType: 8
   buildTargetSettings:
@@ -44,42 +44,6 @@ TextureImporter:
     textureFormat: -2
     compressionQuality: 50
   spriteSheet:
-    sprites:
-    - name: princess-spritesheet_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 362
-        height: 500
-      alignment: 0
-      pivot: {x: 0, y: 0}
-    - name: princess-spritesheet_1
-      rect:
-        serializedVersion: 2
-        x: 362
-        y: 0
-        width: 362
-        height: 500
-      alignment: 0
-      pivot: {x: 0, y: 0}
-    - name: princess-spritesheet_2
-      rect:
-        serializedVersion: 2
-        x: 724
-        y: 0
-        width: 362
-        height: 500
-      alignment: 0
-      pivot: {x: 0, y: 0}
-    - name: princess-spritesheet_3
-      rect:
-        serializedVersion: 2
-        x: 1086
-        y: 0
-        width: 362
-        height: 500
-      alignment: 0
-      pivot: {x: 0, y: 0}
+    sprites: []
   spritePackingTag: 
   userData: 

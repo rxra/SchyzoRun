@@ -8,9 +8,13 @@ public class Screen : MonoBehaviour {
 	public Color color = Color.blue;
 	public float screenReality = 0f;
 	public bool bricReality = true;
+	public RealityLevel realityLevel = RealityLevel.None;
 
 	public bool InputPlayer(float h, float hspeed)
 	{
+		if(_player==null) {
+			return false;
+		}
 		return _player.Input(h,hspeed);
 	}
 
@@ -182,11 +186,13 @@ public class Screen : MonoBehaviour {
 	void Start () {
 		//renderer.material.color = color;
 		_idx = 0;
-		Player prefab = bricReality?ScreenManager.instance.playerRealityPrefab:ScreenManager.instance.playerFantasyPrefab;
+		//Player prefab = bricReality?ScreenManager.instance.playerRealityPrefab:ScreenManager.instance.playerFantasyPrefab;
+		Player prefab = ((int)realityLevel>=(int)RealityLevel.Player)?ScreenManager.instance.playerRealityPrefab:ScreenManager.instance.playerFantasyPrefab;
 		_player = GameObject.Instantiate(prefab) as Player;
 		_player.Initialize(this);
 
-		GameObject prefab2 = bricReality?ScreenManager.instance.princessRealityPrefab:ScreenManager.instance.princessFantasyPrefab;
+		GameObject prefab2 = ((int)realityLevel>=(int)RealityLevel.Princess)?ScreenManager.instance.princessRealityPrefab:ScreenManager.instance.princessFantasyPrefab;
+		//GameObject prefab2 = bricReality?ScreenManager.instance.princessRealityPrefab:ScreenManager.instance.princessFantasyPrefab;
 		_princess = GameObject.Instantiate(prefab2) as GameObject;
 		_princess.transform.localScale = new Vector3(
 			_princess.transform.localScale.x/(float)level,
@@ -262,6 +268,7 @@ public class Screen : MonoBehaviour {
 		BricGenerator bloc = GameObject.Instantiate(blocPrefab,_nextBlocPosition,Quaternion.identity) as BricGenerator;
 		bloc.reality = bricReality;
 		bloc.realityPercent = screenReality;
+		bloc.realityLevel = realityLevel;
 		bloc.transform.position = _nextBlocPosition;
 		bloc.transform.localScale /= level;
 

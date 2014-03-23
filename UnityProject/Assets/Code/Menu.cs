@@ -3,6 +3,9 @@ using System.Collections;
 
 public class Menu : MonoBehaviour {
 
+	public GameObject title;
+	public GameObject restart;
+
 	public static Menu instance
 	{
 		get
@@ -11,10 +14,10 @@ public class Menu : MonoBehaviour {
 		}
 	}
 
-	public void Restart()
+	public void GameOver()
 	{
 		_started = false;
-		Application.LoadLevel(0);
+		Application.LoadLevel(2);
 	}
 
 	static private Menu s_Instance = null;
@@ -23,7 +26,13 @@ public class Menu : MonoBehaviour {
 		if (s_Instance==null) {
 			s_Instance = this;
 		}
-		DontDestroyOnLoad(transform.gameObject);
+	}
+
+	void Start() {
+		if (_started && title!=null && title.activeSelf) {
+			title.SetActive(true);
+		}
+		_started = false;
 	}
 
 	// Update is called once per frame
@@ -34,6 +43,6 @@ public class Menu : MonoBehaviour {
 		}
 	}
 
-	private bool _started = false;
+	private static bool _started = false;
 
 }

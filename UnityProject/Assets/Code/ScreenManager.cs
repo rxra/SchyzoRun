@@ -38,6 +38,23 @@ public class ScreenManager : MonoBehaviour {
 	public Material realityObstacle3;
 	public Material heart;
 
+	public float invulnerabilityTimer = 1f;
+
+	AudioSource source;
+	AudioSource source0;
+	AudioSource source1;
+	AudioSource source2;
+	AudioSource source3;
+	AudioSource source4;
+
+	public int screenCount
+	{
+		get
+		{
+			return _screens.Count;
+		}
+	}
+
 	public static ScreenManager instance
 	{
 		get
@@ -54,8 +71,11 @@ public class ScreenManager : MonoBehaviour {
 	
 	public void ObsctableHitted()
 	{
+		if ((Time.time-_startInvulnerability)<invulnerabilityTimer) {
+			return;
+		}
 		if (_screens.Count==1) {
-			Menu.instance.Restart();
+			Application.LoadLevel(2);
 		} else {
 			UndivideScreen();
 		}
@@ -154,16 +174,80 @@ public class ScreenManager : MonoBehaviour {
 	
 	static private ScreenManager s_Instance = null;
 	
+	void turnOffTrack(int i) {
+		if (i == 0)
+			source0.volume = 0.0f;
+		if (i == 1)
+			source1.volume = 0.0f;
+		if (i == 2)
+			source2.volume = 0.0f;
+		if (i == 3)
+			source3.volume = 0.0f;
+		if (i == 4)
+			source4.volume = 0.0f;
+	}
+	
+	void turnOnTrack(int i) {
+		if (i == 0)
+			source0.volume = 1.0f;
+		if (i == 1)
+			source1.volume = 1.0f;
+		if (i == 2)
+			source2.volume = 1.0f;
+		if (i == 3)
+			source3.volume = 1.0f;
+		if (i == 4)
+			source4.volume = 1.0f;
+	}
+	
+	private int nb_track = 1;
+	
+	void setTracksOnOff() {
+		int i;
+		print ("nb_tracks = " + nb_track);
+		for (i=0; i<nb_track; i++)
+			turnOnTrack(i);
+		for (i=nb_track; i<5; i++)
+			turnOffTrack(i);
+	}
+
 	void Awake () {
 		if (s_Instance) {
 			Debug.LogError ("Error: an instance of ScreenManager already exist");
 			return;
 		}
 		s_Instance = this;
+		_startSpeed = speed;
 	}
 	
 	// Use this for initialization
 	void Start () {
+		source = gameObject.AddComponent<AudioSource>();
+		source0 = gameObject.AddComponent<AudioSource>();
+		source1 = gameObject.AddComponent<AudioSource>();
+		source2 = gameObject.AddComponent<AudioSource>();
+		source3 = gameObject.AddComponent<AudioSource>();
+		source4 = gameObject.AddComponent<AudioSource>();
+		source.loop = true;
+		source0.loop = true;
+		source1.loop = true;
+		source2.loop = true;
+		source3.loop = true;
+		source4.loop = true;
+		source.clip = Resources.Load("Intro") as AudioClip;
+		source.Play();
+		source0.clip = Resources.Load("Band_1") as AudioClip;
+		source0.Play();
+		source1.clip = Resources.Load("Band_2") as AudioClip;
+		source1.Play();
+		source2.clip = Resources.Load("Band_3") as AudioClip;
+		source2.Play();
+		source3.clip = Resources.Load("Band_4") as AudioClip;
+		source3.Play();
+		source4.clip = Resources.Load("Band_5") as AudioClip;
+		source4.Play();
+		ScreenManager.instance.setTracksOnOff ();
+
 		Screen screen = GameObject.Instantiate(screenPrefab,Vector3.zero,Quaternion.identity) as Screen;
 		screen.transform.localScale = new Vector3(
 			Camera.main.orthographicSize*Camera.main.aspect*2,
@@ -230,31 +314,51 @@ public class ScreenManager : MonoBehaviour {
 				difficulty++;
 				_generatedBrics = 0;
 			}
+		} else if (_generatedBrics==6) {
+			_generatedBrics = 0;
+			foreach(Screen s in _screens) {
+				if (_currentRealityLevel<RealityLevel.Middle) {
+					s.realityLevel = (RealityLevel)((int)s.realityLevel+1);
+				}
+			}
+			if (_screens.Count>1) {
+				_currentRealityLevel = _screens[1].realityLevel;
+			}
 		}
 	}
 	
 	private void DivideScreen()
 	{
+		_startInvulnerability = Time.time;
 		int count = _screens.Count+1;
 		foreach(Screen s in _screens) {
 			s.DestroyScreen();
 		}
 		_screens.Clear();
 		GenerateScreens(count);
+		nb_track++;
+		ScreenManager.instance.setTracksOnOff ();
 	}
 	
 	private void UndivideScreen()
 	{
+		_startInvulnerability = Time.time;
+		_currentRealityLevel = _screens[1].realityLevel;
+		Debug.Log ("realityLevel: " + _currentRealityLevel);
 		int count = _screens.Count-1;
 		foreach(Screen s in _screens) {
 			s.DestroyScreen();
 		}
 		_screens.Clear();
 		GenerateScreens(count);
+		nb_track--;
+		ScreenManager.instance.setTracksOnOff ();
 	}
 	
 	private void GenerateScreens(int count)
 	{
+		speed = _startSpeed - (_startSpeed * (count-1) * 0.1f);
+
 		for (int i=0;i<count;i++) {
 			Screen screen = GameObject.Instantiate(screenPrefab,Vector3.zero,Quaternion.identity) as Screen;
 			screen.level = count;
@@ -271,6 +375,8 @@ public class ScreenManager : MonoBehaviour {
 				screen.screenReality = 100f*i/((float)(count-1));
 				screen.bricReality = Random.Range(0f,100f)<screen.screenReality?true:false;
 			}
+			screen.realityLevel = (RealityLevel)(_currentRealityLevel+i);
+			Debug.Log ("screen.realityLevel: " + screen.realityLevel);
 		}
 	}
 	
@@ -280,5 +386,8 @@ public class ScreenManager : MonoBehaviour {
 	private int _currentScreenGeneration = 0;
 	private int _generatedBrics = 0;
 	private int _heart = 0;
+	private RealityLevel _currentRealityLevel = RealityLevel.None;
+	private float _startInvulnerability;
+	private float _startSpeed;
 	
 }

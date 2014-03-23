@@ -98,7 +98,7 @@ MonoBehaviour:
   fantasyColor2: {r: .985294104, g: .579584777, b: .957314193, a: 0}
   difficulty: 1
   difficultyMax: 5
-  speed: 20
+  speed: 14
   hspeed: 17.5
   fantasyLeft: {fileID: 2100000, guid: 7faa4ae2025f77e49bfe48c8b44c5336, type: 2}
   fantasyMiddle: {fileID: 2100000, guid: 50c2e353ce141e34297126cde525200c, type: 2}
@@ -114,6 +114,7 @@ MonoBehaviour:
   fantasyObstacle3: {fileID: 2100000, guid: 34ea65c2380aaf04fae9c7ee4d730e47, type: 2}
   realityObstacle3: {fileID: 2100000, guid: 39b04e7a7abc9954e84852e94e644640, type: 2}
   heart: {fileID: 2100000, guid: fec11c3c7138afa48963799600bf4486, type: 2}
+  invulnerabilityTimer: 1
 --- !u!132 &13200000
 GUIText:
   m_ObjectHideFlags: 1
