@@ -29,6 +29,8 @@ public class BricGenerator : MonoBehaviour {
 					t.gameObject.renderer.material = reality?ScreenManager.instance.realityObstacle1:ScreenManager.instance.fantasyObstacle1;
 				} else if (t.gameObject.name=="Obstacle2") {
 					t.gameObject.renderer.material = reality?ScreenManager.instance.realityObstacle2:ScreenManager.instance.fantasyObstacle2;
+				} else if (t.gameObject.name=="Obstacle3") {
+					t.gameObject.renderer.material = reality?ScreenManager.instance.realityObstacle3:ScreenManager.instance.fantasyObstacle3;
 				}
 				if (Random.Range(0f,100f)<50) {
 					GameObject.Destroy(t.gameObject);
@@ -39,7 +41,11 @@ public class BricGenerator : MonoBehaviour {
 					bool generateBonus = Random.Range(0f,100f)<realityPercent?false:true;
 					if (!generateBonus) {
 						GameObject.Destroy(t.gameObject);
+					} else {
+						t.gameObject.renderer.material = ScreenManager.instance.heart;
 					}
+				} else if (t.gameObject.tag=="Eart" || t.gameObject.tag=="BigEart") {
+					t.gameObject.renderer.material = ScreenManager.instance.heart;
 				}
 			}
 		}
