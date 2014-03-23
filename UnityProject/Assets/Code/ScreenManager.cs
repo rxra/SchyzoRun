@@ -54,11 +54,11 @@ public class ScreenManager : MonoBehaviour {
 	
 	public void ObsctableHitted()
 	{
-		/*if (_screens.Count==1) {
+		if (_screens.Count==1) {
 			Menu.instance.Restart();
 		} else {
 			UndivideScreen();
-		}*/
+		}
 	}
 	
 	public BricGenerator NextBloc(ref int idx)
