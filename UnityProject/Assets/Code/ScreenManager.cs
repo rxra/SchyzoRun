@@ -155,6 +155,13 @@ public class ScreenManager : MonoBehaviour {
 	void Update () {
 
 		float h = Input.GetAxis("Horizontal");
+		if (h > 0) {
+				h = 1.0;
+		} else if (h < 0) {
+				h = -1.0;
+		} else {
+				h = 0;
+		}
 		foreach (Screen s in _screens) {
 			if (!s.InputPlayer(h,hspeed)) {
 				break;
