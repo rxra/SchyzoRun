@@ -262,7 +262,7 @@ public class Screen : MonoBehaviour {
 
 		_nextBlocPosition = new Vector3(
 			bloc.transform.position.x,
-			_lastBloc.transform.position.y + _lastBlockBounds.size.y/2f,
+			bloc.transform.position.y + _lastBlockBounds.size.y/2f,
 			bloc.transform.position.z
 			);
 
