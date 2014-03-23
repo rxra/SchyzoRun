@@ -1,10 +1,11 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Code\BricGenerator.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Code\ScreenManager.cs">
     <Files>
-      <File FileName="Assets\Code\ScreenManager.cs" Line="28" Column="30" />
-      <File FileName="Assets\Code\BricGenerator.cs" Line="25" Column="117" />
-      <File FileName="Assets\Code\Screen.cs" Line="106" Column="1" />
+      <File FileName="Assets\Code\ScreenManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Code\ScreenManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Code\BricGenerator.cs" Line="22" Column="23" />
+      <File FileName="Assets\Code\Screen.cs" Line="240" Column="55" />
       <File FileName="Assets\Code\Player.cs" Line="22" Column="4" />
     </Files>
   </MonoDevelop.Ide.Workbench>
