@@ -188,15 +188,15 @@ public class Screen : MonoBehaviour {
 
 		GameObject prefab2 = bricReality?ScreenManager.instance.princessRealityPrefab:ScreenManager.instance.princessFantasyPrefab;
 		_princess = GameObject.Instantiate(prefab2) as GameObject;
-		_princess.transform.position = new Vector3(
-			transform.position.x,
-			_princess.transform.position.y,
-			_princess.transform.position.z
-		);
 		_princess.transform.localScale = new Vector3(
 			_princess.transform.localScale.x/(float)level,
 			_princess.transform.localScale.y/(float)level,
 			_princess.transform.localScale.z
+			);
+		_princess.transform.position = new Vector3(
+			transform.position.x,
+			transform.position.y + Camera.main.orthographicSize - _princess.transform.localScale.y*3,
+			_princess.transform.position.z
 			);
 
 		_nextBlocPosition = new Vector3(
