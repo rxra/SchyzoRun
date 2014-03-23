@@ -220,6 +220,9 @@ public class Screen : MonoBehaviour {
 
 		//if ((Camera.main.transform.position.x+_cameraWidth)>=_nextBlocPosition.x) {
 		if (_lastBloc.transform.position.y+_lastBlockBounds.size.y/2f<=_generateBlocPosition.y) {
+			/*
+			 * Quand la moitié du bloc est sortie du générateur.
+			 */
 			_nextBlocPosition = _generateBlocPosition;
 			CreateNextBloc();
 		}
@@ -259,7 +262,7 @@ public class Screen : MonoBehaviour {
 
 		_nextBlocPosition = new Vector3(
 			bloc.transform.position.x,
-			bloc.transform.position.y + _lastBlockBounds.size.y/2f,
+			_lastBloc.transform.position.y + _lastBlockBounds.size.y/2f,
 			bloc.transform.position.z
 			);
 
