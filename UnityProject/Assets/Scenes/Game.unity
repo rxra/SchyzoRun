@@ -187,6 +187,9 @@ MonoBehaviour:
   realityObstacle1: {fileID: 2100000, guid: 3a3053ce70af0194da26dcb56f0c1db1, type: 2}
   fantasyObstacle2: {fileID: 2100000, guid: 535d4d3d43900814895d7c7a81da8d26, type: 2}
   realityObstacle2: {fileID: 2100000, guid: 667d77db7651f6e4e854ce4c3a4561c9, type: 2}
+  fantasyObstacle3: {fileID: 0}
+  realityObstacle3: {fileID: 0}
+  heart: {fileID: 0}
 --- !u!4 &826243285
 Transform:
   m_ObjectHideFlags: 0
