@@ -66,8 +66,8 @@ MonoBehaviour:
   fantasyColor2: {r: .985294104, g: .579584777, b: .957314193, a: 0}
   difficulty: 1
   difficultyMax: 5
-  speed: 10
-  hspeed: 15
+  speed: 20
+  hspeed: 17.5
   fantasyLeft: {fileID: 2100000, guid: 7faa4ae2025f77e49bfe48c8b44c5336, type: 2}
   fantasyMiddle: {fileID: 2100000, guid: 50c2e353ce141e34297126cde525200c, type: 2}
   fantasyRight: {fileID: 2100000, guid: 0a27c6294e2dfae42a20a95d42f4cbe9, type: 2}
