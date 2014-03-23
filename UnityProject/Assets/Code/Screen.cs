@@ -223,7 +223,11 @@ public class Screen : MonoBehaviour {
 			/*
 			 * Quand la moitié du bloc est sortie du générateur.
 			 */
-			_nextBlocPosition = _generateBlocPosition;
+			_nextBlocPosition = new Vector3(
+				_generateBlocPosition.x,
+				_lastBloc.transform.position.y+_lastBlockBounds.size.y/2f,
+				_generateBlocPosition.z
+			);
 			CreateNextBloc();
 		}
 
