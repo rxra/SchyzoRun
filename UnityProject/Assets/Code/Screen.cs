@@ -17,6 +17,7 @@ public class Screen : MonoBehaviour {
 	public void DestroyScreen()
 	{
 		GameObject.Destroy(_player.gameObject);
+		GameObject.Destroy(_princess);
 		foreach(BricGenerator bloc in _blocs) {
 			GameObject.Destroy(bloc.gameObject);
 		}
@@ -185,6 +186,19 @@ public class Screen : MonoBehaviour {
 		_player = GameObject.Instantiate(prefab) as Player;
 		_player.Initialize(this);
 
+		GameObject prefab2 = bricReality?ScreenManager.instance.princessRealityPrefab:ScreenManager.instance.princessFantasyPrefab;
+		_princess = GameObject.Instantiate(prefab2) as GameObject;
+		_princess.transform.position = new Vector3(
+			transform.position.x,
+			_princess.transform.position.y,
+			_princess.transform.position.z
+		);
+		_princess.transform.localScale = new Vector3(
+			_princess.transform.localScale.x/(float)level,
+			_princess.transform.localScale.y/(float)level,
+			_princess.transform.localScale.z
+			);
+
 		_nextBlocPosition = new Vector3(
 			transform.position.x,
 			transform.position.y - transform.localScale.y/2f,
@@ -276,6 +290,7 @@ public class Screen : MonoBehaviour {
 
 	private int _idx;
 	private Player _player;
+	private GameObject _princess;
 	private Vector3 _nextBlocPosition = Vector3.zero;
 	private Bounds _lastBlockBounds;
 	private List<BricGenerator> _blocs = new List<BricGenerator>();

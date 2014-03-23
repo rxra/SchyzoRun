@@ -7,6 +7,8 @@ public class ScreenManager : MonoBehaviour {
 	public Screen screenPrefab;
 	public Player playerFantasyPrefab;
 	public Player playerRealityPrefab;
+	public GameObject princessFantasyPrefab;
+	public GameObject princessRealityPrefab;
 	public LayerMask screenLayer;
 	public BricGenerator[] brics;
 	public BricGenerator[] easyBrics;
@@ -44,7 +46,11 @@ public class ScreenManager : MonoBehaviour {
 	
 	public void ObsctableHitted()
 	{
-		Debug.Log ("ObstacleHitted");
+		/*if (_screens.Count==1) {
+			Menu.instance.Restart();
+		} else {
+			UndivideScreen();
+		}*/
 	}
 	
 	public BricGenerator NextBloc(ref int idx)
@@ -222,6 +228,16 @@ public class ScreenManager : MonoBehaviour {
 	private void DivideScreen()
 	{
 		int count = _screens.Count+1;
+		foreach(Screen s in _screens) {
+			s.DestroyScreen();
+		}
+		_screens.Clear();
+		GenerateScreens(count);
+	}
+	
+	private void UndivideScreen()
+	{
+		int count = _screens.Count-1;
 		foreach(Screen s in _screens) {
 			s.DestroyScreen();
 		}
