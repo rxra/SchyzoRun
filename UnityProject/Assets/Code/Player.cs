@@ -44,17 +44,17 @@ public class Player : MonoBehaviour {
 
 		_startPosition = new Vector3(
 			screen.transform.position.x,
-			screen.transform.position.y - screen.transform.localScale.y/2f + transform.localScale.y/2f + 5f,
+			screen.transform.position.y - screen.transform.localScale.y/2f + transform.localScale.y/2f + 7f/(float)screen.level,
 			-1f
 		);
 
 		transform.position = _startPosition;
 
-		_splitPosition = new Vector3(
+		/*_splitPosition = new Vector3(
 			screen.transform.position.x,
 			screen.transform.position.y + screen.transform.localScale.y/2f - transform.localScale.y/2f,
 			-1f
-		);
+		);*/
 
 		borderMargin /= (float)screen.level;
 	}
@@ -68,7 +68,10 @@ public class Player : MonoBehaviour {
 	{
 		//Debug.Log (collider.gameObject);
 		if (collider.gameObject.tag=="Eart" || collider.gameObject.tag=="BigEart") {
+			ScreenManager.instance.HeartHitted(collider.gameObject.tag=="BigEart"?true:false);
 			GameObject.Destroy(collider.gameObject);
+		} else if (collider.gameObject.tag=="Obstacle") {
+			ScreenManager.instance.ObsctableHitted();
 		}
 	}
 
@@ -87,6 +90,6 @@ public class Player : MonoBehaviour {
 
 	private Screen _screen;
 	private Vector3 _startPosition;
-	private Vector3 _splitPosition;
+	//private Vector3 _splitPosition;
 
 }
