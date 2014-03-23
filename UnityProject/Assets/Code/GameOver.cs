@@ -3,7 +3,14 @@ using System.Collections;
 
 public class GameOver : MonoBehaviour {
 
+	public GUIText text;
 	public float timerBeforeKey = 2;
+
+	void Start()
+	{
+		int h = PlayerPrefs.GetInt("Hearts");
+		text.text = h.ToString();
+	}
 
 	// Update is called once per frame
 	void Update () {

@@ -6,6 +6,15 @@ public class Player : MonoBehaviour {
 	public float scaleFactor = 0.1f;
 	public float borderMargin = 20f;
 
+	public void Flash(bool start)
+	{
+		_flash = start;
+		_flashTimer = 0;
+		if (!start) {
+			renderer.enabled = true;
+		}
+	}
+
 	public bool Input(float h, float hspeed)
 	{
 		Vector3 oldPosition = transform.position;
@@ -59,9 +68,19 @@ public class Player : MonoBehaviour {
 		borderMargin /= (float)screen.level;
 	}
 
-	// Use this for initialization
-	void Start () {
-	
+	void Update()
+	{
+		if (_flash) {
+			_flashTimer += Time.deltaTime;
+			if (_flashTimer>=0.1f) {
+				_flashTimer = 0;
+				renderer.enabled = !renderer.enabled;
+			}
+		}
+	}
+
+	IEnumerator Wait(float waitTime) {
+		yield return new WaitForSeconds(waitTime);
 	}
 
 	void OnTriggerEnter(Collider collider)
@@ -92,5 +111,7 @@ public class Player : MonoBehaviour {
 	private Screen _screen;
 	private Vector3 _startPosition;
 	//private Vector3 _splitPosition;
+	private bool _flash = false;
+	private float _flashTimer;
 
 }

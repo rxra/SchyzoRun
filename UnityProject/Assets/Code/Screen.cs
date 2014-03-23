@@ -10,6 +10,14 @@ public class Screen : MonoBehaviour {
 	public bool bricReality = true;
 	public RealityLevel realityLevel = RealityLevel.None;
 
+	public void FlashPlayer(bool start)
+	{
+		if (_player==null) {
+			return;
+		}
+		_player.Flash(start);
+	}
+
 	public bool InputPlayer(float h, float hspeed)
 	{
 		if(_player==null) {
@@ -183,7 +191,7 @@ public class Screen : MonoBehaviour {
 		ScreenManager.instance.RemoveScreen(this,true);
 	}
 
-	void Start () {
+	public void Initialize () {
 		//renderer.material.color = color;
 		_idx = 0;
 		//Player prefab = bricReality?ScreenManager.instance.playerRealityPrefab:ScreenManager.instance.playerFantasyPrefab;

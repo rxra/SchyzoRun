@@ -77,9 +77,14 @@ public class ScreenManager : MonoBehaviour {
 			return;
 		}
 		if (_screens.Count==1) {
+			PlayerPrefs.SetInt("Hearts",_heart);
 			Application.LoadLevel(2);
 		} else {
 			UndivideScreen();
+			_flash = true;
+			foreach (Screen s in _screens) {
+				s.FlashPlayer(true);
+			}
 		}
 	}
 	
@@ -260,6 +265,7 @@ public class ScreenManager : MonoBehaviour {
 		screen.screenReality = 0;
 		screen.bricReality = false;
 		screen.gameObject.name = "Screen_" + screen.level;
+		screen.Initialize();
 		AddScreen(screen,true);
 	}
 	
@@ -311,12 +317,12 @@ public class ScreenManager : MonoBehaviour {
 				_generatedBrics = 0;
 			}
 		} else if (difficulty<5) {
-			if (_generatedBrics==6) {
+			if (_generatedBrics==4) {
 				DivideScreen();
 				difficulty++;
 				_generatedBrics = 0;
 			}
-		} else if (_generatedBrics==6) {
+		} else if (_generatedBrics==4) {
 			_generatedBrics = 0;
 			foreach(Screen s in _screens) {
 				if (_currentRealityLevel<RealityLevel.Middle) {
@@ -327,6 +333,14 @@ public class ScreenManager : MonoBehaviour {
 				_currentRealityLevel = _screens[1].realityLevel;
 			}
 		}
+
+		if (_flash && (Time.time-_startInvulnerability)>invulnerabilityTimer) {
+			_flash = false;
+			foreach (Screen s in _screens) {
+				s.FlashPlayer(false);
+			}
+		}
+
 	}
 	
 	private void DivideScreen()
@@ -342,6 +356,11 @@ public class ScreenManager : MonoBehaviour {
 		ScreenManager.instance.setTracksOnOff ();
 
 		splitSound.Play();
+
+		_flash = true;
+		foreach (Screen s in _screens) {
+			s.FlashPlayer(true);
+		}
 	}
 	
 	private void UndivideScreen()
@@ -383,6 +402,7 @@ public class ScreenManager : MonoBehaviour {
 			}
 			screen.realityLevel = (RealityLevel)(_currentRealityLevel+i);
 			Debug.Log ("screen.realityLevel: " + screen.realityLevel);
+			screen.Initialize();
 		}
 	}
 	
@@ -395,5 +415,6 @@ public class ScreenManager : MonoBehaviour {
 	private RealityLevel _currentRealityLevel = RealityLevel.None;
 	private float _startInvulnerability;
 	private float _startSpeed;
+	private bool _flash = false;
 	
 }
