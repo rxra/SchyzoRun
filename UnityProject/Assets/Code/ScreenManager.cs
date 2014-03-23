@@ -98,6 +98,8 @@ public class ScreenManager : MonoBehaviour {
 			_currentBric = go;
 		}
 
+		_generatedBrics++;
+		Debug.Log (_generatedBrics);
 		return go;
 	}
 
@@ -159,14 +161,9 @@ public class ScreenManager : MonoBehaviour {
 			}
 		}
 
-		if (Input.GetKeyDown(KeyCode.Space)) {
-			int count = _screens.Count+1;
-			foreach(Screen s in _screens) {
-				s.DestroyScreen();
-			}
-			_screens.Clear();
-			GenerateScreens(count);
-		}
+		/*if (Input.GetKeyDown(KeyCode.Space)) {
+			DivideScreen();
+		}*/
 
 		/*if (Input.GetKeyDown(KeyCode.Space)) {
 			Screen s = _screens[0];
@@ -177,13 +174,40 @@ public class ScreenManager : MonoBehaviour {
 			_screens[0].SplitDouble(true);
 		}*/
 
-		if (Input.GetKeyDown(KeyCode.L)) {
+		/*if (Input.GetKeyDown(KeyCode.L)) {
 			difficulty++;
 			if (difficulty>difficultyMax) {
 				difficulty = difficultyMax;
 			}
-		}
+		}*/
 		
+	}
+
+	private void LateUpdate()
+	{
+		if (difficulty==1) {
+			if (_generatedBrics==4) {
+				DivideScreen();
+				difficulty++;
+				_generatedBrics = 0;
+			}
+		} else if (difficulty<5) {
+			if (_generatedBrics==6) {
+				DivideScreen();
+				difficulty++;
+				_generatedBrics = 0;
+			}
+		}
+	}
+
+	private void DivideScreen()
+	{
+		int count = _screens.Count+1;
+		foreach(Screen s in _screens) {
+			s.DestroyScreen();
+		}
+		_screens.Clear();
+		GenerateScreens(count);
 	}
 
 	private void GenerateScreens(int count)
@@ -216,5 +240,6 @@ public class ScreenManager : MonoBehaviour {
 	private RaycastHit _mouseHit = new RaycastHit();
 	private BricGenerator _currentBric = null;
 	private int _currentScreenGeneration = 0;
+	private int _generatedBrics = 0;
 
 }
