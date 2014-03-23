@@ -6,26 +6,10 @@ public class Menu : MonoBehaviour {
 	public GameObject title;
 	public GameObject restart;
 
-	public static Menu instance
-	{
-		get
-		{
-			return s_Instance;
-		}
-	}
-
 	public void GameOver()
 	{
 		_started = false;
 		Application.LoadLevel(2);
-	}
-
-	static private Menu s_Instance = null;
-	
-	void Awake() {
-		if (s_Instance==null) {
-			s_Instance = this;
-		}
 	}
 
 	void Start() {

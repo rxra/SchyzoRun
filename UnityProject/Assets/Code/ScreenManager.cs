@@ -39,6 +39,8 @@ public class ScreenManager : MonoBehaviour {
 	public Material heart;
 
 	public float invulnerabilityTimer = 1f;
+	public AudioSource splitSound;
+	public AudioSource unsplitSound;
 
 	AudioSource source;
 	AudioSource source0;
@@ -338,6 +340,8 @@ public class ScreenManager : MonoBehaviour {
 		GenerateScreens(count);
 		nb_track++;
 		ScreenManager.instance.setTracksOnOff ();
+
+		splitSound.Play();
 	}
 	
 	private void UndivideScreen()
@@ -353,6 +357,8 @@ public class ScreenManager : MonoBehaviour {
 		GenerateScreens(count);
 		nb_track--;
 		ScreenManager.instance.setTracksOnOff ();
+
+		unsplitSound.Play();
 	}
 	
 	private void GenerateScreens(int count)

@@ -69,6 +69,7 @@ public class Player : MonoBehaviour {
 		//Debug.Log (collider.gameObject);
 		if (collider.gameObject.tag=="Eart" || collider.gameObject.tag=="BigEart") {
 			ScreenManager.instance.HeartHitted(collider.gameObject.tag=="BigEart"?true:false);
+			//audio.Play();
 			GameObject.Destroy(collider.gameObject);
 		} else if (collider.gameObject.tag=="Obstacle") {
 			ScreenManager.instance.ObsctableHitted();
